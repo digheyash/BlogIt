@@ -73,3 +73,9 @@ input{
     background-color: #dc3545;
     color: #ffffff;
 }
+
+#update-post:hover {
+    background-color: #6bbf58;
+    color: #ffffff;
+  
+}
