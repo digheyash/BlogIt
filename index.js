@@ -47,6 +47,42 @@ app.post("/create", (req, res) => {
     res.redirect("/");
 });
 
+
+app.post("/delete/:id", (req, res) => {
+
+    const id = Number(req.params.id);
+
+    posts = posts.filter(post => post.id !== id);
+
+    res.redirect("/");
+});
+
+
+app.get("/edit/:id", (req, res) => {
+
+    const id = Number(req.params.id);
+
+    const post = posts.find(post => post.id === id);
+
+    res.render("edit.ejs", { post: post });
+});
+
+
+app.post("/edit/:id", (req, res) => {
+
+    const id = Number(req.params.id);
+
+    const post = posts.find(post => post.id === id);
+
+    post.title = req.body.title;
+    post.author = req.body.author;
+    post.content = req.body.content;
+
+    res.redirect("/");
+});
+
+
+
 app.listen(port,() => {
     console.log(`Server is running on port http://localhost:${port}`);
 })

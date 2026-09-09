@@ -33,8 +33,15 @@
                 <p><%= post.content %></p>
                 <small>By ~<%= post.author %></small>
                 <div class="w-100 d-flex flex-wrap justify-content-center gap-2 mt-3">
-                    <a href="#" class="btn-custom btn-edit text-decoration-none flex-grow-1 text-center">Edit Post</a>
-                    <button class="btn-custom btn-delete flex-grow-1">Delete Post</button>
+                    <a href="/edit/<%= post.id %>" 
+                        class="btn-custom btn-edit text-decoration-none flex-grow-1 text-center">
+                        Edit Post
+                    </a>
+                    <form action="/delete/<%= post.id %>" method="POST" class="flex-grow-1">
+                        <button type="submit" class="btn-custom btn-delete w-100">
+                            Delete Post
+                        </button>
+                    </form>
                 </div> 
                 <%- include ("edit.ejs") %>
             </article>
